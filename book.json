@@ -1,0 +1,27 @@
+{
+    "title": "深入理解Java虚拟机",
+    "author" : "信仰不悔",
+    "description" : "总结与摘要",
+    "language" : "zh-hans",
+    "structure": {
+        "readme": "README.md"
+    },
+    "plugins": [
+        "-lunr",
+        "-search",
+        "search-pro",
+        "back-to-top-button",
+        "github",
+        "splitter",
+        "expandable-chapters",
+        "chapter-fold"
+    ],
+    "pluginsConfig": {
+        "anchor-navigation-ex": {
+            "isShowTocTitleIcon": true
+        },
+        "github":{
+             "url": "https://github.com/xybh-l"
+        }
+    }
+}
