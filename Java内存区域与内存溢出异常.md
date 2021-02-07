@@ -77,11 +77,11 @@ JDK8以后改用在本地内存中实现的元空间。
 
 
 
-<img src="http://image.xybh.online/方法区-1.6.png" alt="image-20210207210703489" style="zoom: 50%;" />
+<img src="http://image.xybh.online/方法区-1.6.png" alt="方法区在JDK1.6中的实现" style="zoom: 50%;" />
 
-<img src="http://image.xybh.online/方法区-1.7.png" alt="image-20210207210746840" style="zoom:50%;" />
+<img src="http://image.xybh.online/方法区-1.7.png" alt="方法区在JDK1.7中的实现" style="zoom:50%;" />
 
-<img src="http://image.xybh.online/方法区-1.8.png" alt="image-20210207211320595" style="zoom:50%;" />
+<img src="http://image.xybh.online/方法区-1.8.png" alt="方法区在JDK1.8中的实现" style="zoom:50%;" />
 
 异常：如果方法区无法满足新的内存分配需求时，将抛出OutOfMemoryError异常。
 
