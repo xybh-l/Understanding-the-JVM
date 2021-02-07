@@ -8,7 +8,7 @@ Java虚拟机在执行Java程序的过程中会把它所管理的内存划分为
 
 线程私有区域：虚拟机栈，本地方法区，程序计数器
 
-<img src="http://image.xybh.online/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4.png" alt="JVM运行时内存空间" style="zoom:33%; text-align=center;"/>
+<img src="http://image.xybh.online/JVM运行时内存空间.png" alt="JVM运行时内存空间" style="zoom:33%; text-align=center;"/>
 
 ### 1.1 线程私有区域
 
@@ -36,7 +36,7 @@ Java虚拟机栈也是线程私有的,它的生命周期与线程相同。
 
 异常情况：1.如果线程请求的栈深度大于虚拟机允许的深度，将抛出StackOverflowError异常 2：如果Java虚拟机栈容量可以动态扩展，当栈扩展时无法申请到足够的内存会抛出OutOfMemoryError异常。
 
-<img src="http://image.xybh.online/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88.png" alt="虚拟机栈" style="zoom:33%; text-align=center;" />
+<img src="http://image.xybh.online/Java虚拟机栈.png" alt="虚拟机栈" style="zoom:33%; text-align=center;" />
 
 #### 1.1.3 本地方法栈
 
@@ -52,7 +52,7 @@ Java堆(Java Heap)是虚拟机所管理的内存中最大的一块区域。Java�
 
 根据《Java虚拟机规范》的规定，Java堆可以处于物理上不连续的内存空间中，但在逻辑上它应该被视为是连续的。
 
-<img src="http://image.xybh.online/%E5%A0%86.png" alt="堆" style="zoom:33%; text-align=center;" />
+<img src="http://image.xybh.online/堆.png" alt="堆" style="zoom:33%; text-align=center;" />
 
 1.8开始持久代被废弃，使用元空间代替，MetaSpace并不是堆内存的一部分而是本地内存。
 
@@ -77,11 +77,11 @@ JDK8以后改用在本地内存中实现的元空间。
 
 
 
-<img src="http://image.xybh.online/%E6%96%B9%E6%B3%95%E5%8C%BA-1.6.png" alt="image-20210207210703489" style="zoom: 50%;" />
+<img src="http://image.xybh.online/方法区-1.6.png" alt="image-20210207210703489" style="zoom: 50%;" />
 
-<img src="http://image.xybh.online/%E6%96%B9%E6%B3%95%E5%8C%BA-1.7.png" alt="image-20210207210746840" style="zoom:50%;" />
+<img src="http://image.xybh.online/方法区-1.7.png" alt="image-20210207210746840" style="zoom:50%;" />
 
-<img src="http://image.xybh.online/%E6%96%B9%E6%B3%95%E5%8C%BA-1.8.png" alt="image-20210207211320595" style="zoom:50%;" />
+<img src="http://image.xybh.online/方法区-1.8.png" alt="image-20210207211320595" style="zoom:50%;" />
 
 异常：如果方法区无法满足新的内存分配需求时，将抛出OutOfMemoryError异常。
 
