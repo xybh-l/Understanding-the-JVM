@@ -42,10 +42,10 @@ jobs:
           git config --global user.email "${MYEMAIL}"
           git config --global user.name "${MYNAME}"
           git init
+          git remote add origin https://xybh-l:${TOKEN}@github.com/xybh-l/Understanding-the-JVM.git
           git add .
           git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
-          git remote add origin https://xybh-l:${TOKEN}@github.com/xybh-l/Understanding-the-JVM.git
           git checkout -b gh-pages
-          git push origin gh-pages:gh-pages
+          git push --force --quiet origin gh-pages:gh-pages
 
 
