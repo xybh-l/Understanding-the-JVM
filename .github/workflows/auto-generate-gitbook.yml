@@ -44,7 +44,7 @@ jobs:
           git init
           git add .
           git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
-          git remote add origin git remote set-url origin1 https://xybh-l:${TOKEN}@github.com/xybh-l/Understanding-the-JVM.git
+          git remote add origin https://xybh-l:${TOKEN}@github.com/xybh-l/Understanding-the-JVM.git
           git checkout -b gh-pages
           git push origin gh-pages:gh-pages
 
