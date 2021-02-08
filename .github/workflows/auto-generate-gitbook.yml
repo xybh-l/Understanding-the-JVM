@@ -33,7 +33,7 @@ jobs:
       
       - name: commit _book to branch gh-pages
         env:
-          TOKEN: ${{secrets.TOKEN}}
+          TOKEN: ${{secrets.GITHUB_TOKEN}}
           REF: github.com/${{github.repository}}
           MYEMAIL: a1353433900@gmail.com
           MYNAME: ${{github.repository_owner}}
@@ -46,6 +46,6 @@ jobs:
           git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
           git remote add origin git@github.com:xybh-l/Understanding-the-JVM.git
           git checkout -b gh-pages
-          git push origin gh-pages:gh-pages
+          git push "https://${TOKEN}@${REF}" gh-pages:gh-pages
 
 
