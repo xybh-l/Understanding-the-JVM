@@ -44,13 +44,8 @@ jobs:
           git init
           git add .
           git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
-          
-      - name: push changes
-        uses: ad-m/github-push-action@master
-        env:
-          TOKEN: ${{secrets.TOKEN}}
-        with:
-          github_token: ${TOKEN}
-          branch: gh-pages
-          directory: _book
+          git remote set-url origin git@github.com:xybh-l/Understanding-the-JVM.git
+          git checkout -b gh-pages
+          git push origin gh-pages:gh-pages
+
 
