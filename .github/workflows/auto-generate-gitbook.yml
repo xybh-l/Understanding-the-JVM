@@ -49,6 +49,6 @@ jobs:
       - name: push 
         uses: ad-m/github-push-action@v0.6.0
         with:
-          github_token: ${{ secrets.REPO_TOKEN }}
+          github_token: ${{ secrets.TOKEN }}
           branch: gh-pages
           directory: _book
