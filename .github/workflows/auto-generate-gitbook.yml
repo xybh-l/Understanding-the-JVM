@@ -1,21 +1,18 @@
 # This is a basic workflow to help you get started with Actions
 
 name: auto-generate-gitbook
-
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches:
+      - master
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build:
+  master-to-ph-pages:
     runs-on: ubuntu-latest
 
     steps:
       - name: checkout master
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
         with:
           ref: master
 
