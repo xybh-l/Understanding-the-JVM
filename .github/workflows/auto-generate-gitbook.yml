@@ -47,6 +47,7 @@ jobs:
           git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
 
       - name: Push changes
-        uses: ad-m/github-push-action@gh-pages
+        uses: ad-m/github-push-action@master
         with:
            github_token: ${{secrets.TOKEN}}
+           branch: gh-pages
