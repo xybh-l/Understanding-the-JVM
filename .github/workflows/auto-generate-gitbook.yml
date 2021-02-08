@@ -42,8 +42,14 @@ jobs:
           git config --global user.email "${MYEMAIL}"
           git config --global user.name "${MYNAME}"
           git init
-          git remote add origin https://a1353433900@gmail.com:aa88700420@github.com/xybh-l/Understanding-the-JVM.git
           git add .
           git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
-          git checkout -b gh-pages
-          git push origin gh-pages
+          
+      - name: push changes
+        uses: ad-m/github-push-action@master
+        env:
+          TOKEN: ${{secrets.TOKEN}}
+        with:
+          github_token: ${TOKEN}
+          branch: gh-pages
+
