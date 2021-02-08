@@ -31,13 +31,14 @@ jobs:
           gitbook build
           cp SUMMARY.md _book
       
-      - name: push _book to branch gh-pages
+      - name: commit _book to branch gh-pages
         env:
           TOKEN: ${{secrets.TOKEN}}
           REF: github.com/${{github.repository}}
           MYEMAIL: a1353433900@gmail.com
           MYNAME: ${{github.repository_owner}}
         run: |
+          echo "$TOKEN"
           cd _book
           git config --global user.email "${MYEMAIL}"
           git config --global user.name "${MYNAME}"
@@ -45,9 +46,5 @@ jobs:
           git remote add origin https://${REF}
           git add .
           git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-           github_token: ${{secrets.TOKEN}}
-           branch: gh-pages
-           directory: _book
+          git checkout -b gh-pages
+          git push origin gh-pages
