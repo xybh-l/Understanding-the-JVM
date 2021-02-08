@@ -27,11 +27,11 @@ jobs:
       
       - name: generate _book folder
         run: |
-          book sm
+          book sm -i "node_modules"
           gitbook build
           cp SUMMARY.md _book
       
-      - name: push _book to branch gh-pages
+      - name: commit _book to branch gh-pages
         env:
           TOKEN: ${{secrets.TOKEN}}
           REF: github.com/${{github.repository}}
@@ -42,12 +42,10 @@ jobs:
           git config --global user.email "${MYEMAIL}"
           git config --global user.name "${MYNAME}"
           git init
-          git remote add origin https://${REF}
+          git remote add origin https://xybh-l:${TOKEN}@github.com/xybh-l/Understanding-the-JVM.git
           git add .
           git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
+          git checkout -b gh-pages
+          git push --force --quiet origin gh-pages:gh-pages
 
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-           github_token: ${{secrets.TOKEN}}
-           branch: gh-pages
+
