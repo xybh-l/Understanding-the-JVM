@@ -38,12 +38,11 @@ jobs:
           MYEMAIL: a1353433900@gmail.com
           MYNAME: ${{github.repository_owner}}
         run: |
-          echo "$TOKEN"
           cd _book
           git config --global user.email "${MYEMAIL}"
           git config --global user.name "${MYNAME}"
           git init
-          git remote add origin https://${MYEMAIL}:${TOKEN}@github.com/xybh-l/Understanding-the-JVM.git
+          git remote add origin https://${TOKEN}@github.com/xybh-l/Understanding-the-JVM.git
           git add .
           git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
           git checkout -b gh-pages
