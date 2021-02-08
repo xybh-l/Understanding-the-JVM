@@ -34,7 +34,7 @@ jobs:
       - name: push _book to branch gh-pages
         env:
           TOKEN: ${{ secrets.TOKEN }}
-          REF: github.com/${{github.repository}}
+          REF: github.com/xybh-l/Understanding-the-JVM
           MYEMAIL: a1353433900@gmail.com
           MYNAME: ${{github.repository_owner}}
         run: |
@@ -46,4 +46,4 @@ jobs:
           git add .
           git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
           git branch -M main
-          git push --force --quiet origin main:gh-pages
+          git push --force --quiet "https://${TOKEN}@${REF}" main:gh-pages
