@@ -14,7 +14,8 @@
         "github",
         "splitter",
         "expandable-chapters",
-        "chapter-fold"
+        "chapter-fold",
+        "mermaid-gb3"
     ],
     "pluginsConfig": {
         "anchor-navigation-ex": {
