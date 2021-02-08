@@ -34,21 +34,17 @@ jobs:
       - name: push _book to branch gh-pages
         env:
           TOKEN: ${{ secrets.TOKEN }}
-          REF: github.com/xybh-l/Understanding-the-JVM
-          MYEMAIL: a1353433900@gmail.com
-          MYNAME: ${{github.repository_owner}}
+          REF: github.com/${{github.repository}}
+          MYEMAIL: a1353433900@gmail.com          
+          MYNAME: ${{github.repository_owner}}          
         run: |
           cd _book
           git config --global user.email "${MYEMAIL}"
           git config --global user.name "${MYNAME}"
           git init
           git remote add origin https://${REF}
-          git add .
-                    
-      - name: push
-        uses: github-actions-x/commit@v2.7
-        with:
-          github-token: ${{ secrets.TOKEN }}
-          push-branch: gh-pages
-          commit-message: 'Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages'
-          rebase: 'true' # pull abd rebase before commit
+          git add . 
+          git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
+          git branch -M main
+          git push --force --quiet "https://${TOKEN}@${REF}" main:gh-pages
+
