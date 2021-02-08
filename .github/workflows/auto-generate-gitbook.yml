@@ -45,9 +45,4 @@ jobs:
           git remote add origin https://${REF}
           git add .
           git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-           github_token: ${{secrets.TOKEN}}
-           branch: gh-pages
+          git push origin gh-pages
