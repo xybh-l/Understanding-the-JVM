@@ -20,11 +20,16 @@
         "lightbox",
         "prism",
         "hide-element",
-        "tbfed-pagefooter"
+        "tbfed-pagefooter",
+        "anchor-navigation-ex@0.1.8"
     ],
     "pluginsConfig": {
         "anchor-navigation-ex": {
-            "isShowTocTitleIcon": true
+            "isRewritePageTitle": true,
+            "isShowTocTitleIcon": true,
+            "tocLevel1Icon": "fa fa-hand-o-right",
+	        "tocLevel2Icon": "fa fa-hand-o-right",
+	        "tocLevel3Icon": "fa fa-hand-o-right"
         },
         "github":{
              "url": "https://github.com/xybh-l"
