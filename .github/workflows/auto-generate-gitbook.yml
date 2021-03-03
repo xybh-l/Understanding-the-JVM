@@ -1,0 +1,51 @@
+# This is a basic workflow to help you get started with Actions
+
+name: auto-generate-gitbook
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  master-to-ph-pages:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout master
+        uses: actions/checkout@v2
+        with:
+          ref: master
+
+      - name: install node.js
+        uses: actions/setup-node@v1
+
+      - name: configue gitbook
+        run: |
+          npm install -g gitbook-cli
+          gitbook install
+          npm install -g gitbook-summary
+      
+      - name: generate _book folder
+        run: |
+          book sm -i "node_modules"
+          gitbook build
+          cp SUMMARY.md _book
+      
+      - name: commit _book to branch gh-pages
+        env:
+          TOKEN: ${{secrets.TOKEN}}
+          REF: github.com/${{github.repository}}
+          MYEMAIL: a1353433900@gmail.com
+          MYNAME: ${{github.repository_owner}}
+        run: |
+          cd _book
+          git config --global user.email "${MYEMAIL}"
+          git config --global user.name "${MYNAME}"
+          git init
+          git remote add origin https://xybh-l:${TOKEN}@github.com/xybh-l/Understanding-the-JVM.git
+          git add .
+          git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
+          git checkout -b gh-pages
+          git push --force --quiet origin gh-pages:gh-pages
+
+

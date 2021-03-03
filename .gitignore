@@ -1,0 +1,5 @@
+/node_modules
+/_book
+package.json
+package-lock.json
+*/upload
